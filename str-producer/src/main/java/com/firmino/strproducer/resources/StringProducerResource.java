@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/producer")
 public class StringProducerResource {
     private final StringProducerService producerService;
-    private final KafkaProperties properties;
 
     @PostMapping
     public ResponseEntity<?> sendMessage(@RequestBody String message) {
