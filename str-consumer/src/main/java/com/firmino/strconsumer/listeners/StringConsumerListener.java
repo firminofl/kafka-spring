@@ -2,6 +2,7 @@ package com.firmino.strconsumer.listeners;
 
 import com.firmino.strconsumer.custom.StringConsumerCustomListener;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,7 +18,7 @@ public class StringConsumerListener {
         log.info("LOG ::: Receive message: {}", message);
     }
 
-    @StringConsumerCustomListener(groupId = "group-2")
+    @KafkaListener(topics = "str-topic", groupId = "group-2", containerFactory = "validMessageContainerFactory")
     public void history(String message) {
         log.info("HISTORY ::: Receive message: {}", message);
     }
